@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  scroll-behavior: smooth;
+  text-decoration: none;
+  list-style-type: none;
+  background-color: inherit;
+  font-size: inherit;
+}
+
+.raleway-semi-bold {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    width: 100%;
+    height: 150px;
+    max-width: 1920px;
+    background-color: #09212a;
+
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 70px;
+      margin-left: 5%;
+    }
+  }
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    width: 100%;
+    height: 80vh;
+    max-width: 1440px;
+    background-color: #060606;
+  }
+
+  h1 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 45px;
+    margin-top: 20%;
+  }
+
+  .photos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 5%;
+    gap: 1%;
+
+    img {
+      margin-top: 3%;
+      width: 180px;
+      height: 180px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .dialog-hidden {
+    display: none;
+  }
+
+  .dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 65px;
+    color: #ffffff;
+    background-color: #09212a;
+    padding: 3%;
+    border-radius: 10%;
+    height: 650px;
+    width: 650px;
+
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .dialog-head,
+  .dialog-footer {
+    width: 550px;
+  }
+
+  .dialog > img {
+    height: 400px;
+    width: 550px;
+    object-fit: cover;
+  }
+
+  .dialog-head {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    font-size: 14px;
+    text-transform: capitalize;
+    img {
+      cursor: pointer;
+    }
+  }
+
+  .dialog-footer {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+
+    .rotate-180 {
+      transform: rotateY(180deg);
+    }
+
+    img {
+      cursor: pointer;
+    }
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    width: 100%;
+    height: 150px;
+    max-width: 1920px;
+    background-color: #060606;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url("./img/footer-background.png");
+    background-size: cover;
+
+    img {
+      height: 50px;
+      background-color: transparent;
+    }
+
+    p {
+      margin: 1% 0 0 0;
+      color: white;
+      background-color: transparent;
+    }
+  }
+}
