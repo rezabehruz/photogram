@@ -26,18 +26,20 @@ const imgAlt = [
 
 const album = document.getElementById("album1");
 const dialog = document.getElementById("dialog1");
-let currentImage;
+
 
 function render(){
     
     for (let i = 0; i < imgArr.length; i++) { 
-      album.innerHTML += `<img onclick=renderDialog(${i}) src= img/${ imgArr[i] } alt= ${imgAlt[i]} >`;
+      album.innerHTML += `<img onclick=renderDialog(event,${i}) src= img/${ imgArr[i] } alt= ${imgAlt[i]} >`;
     }
     
 }
 
-function renderDialog(i){
-  dialog.setAttribute("class","dialog");
+function renderDialog(event, i){
+  event.stopPropagation();
+  dialog.setAttribute("class", "dialog");
+  
   dialog.innerHTML = ` 
             <div class="dialog-head">
               <span>${imgAlt[i]}</span>
@@ -57,19 +59,21 @@ function closeDialog(){
 
 function backward(i){
   if(i == 0)
-    currentImage = 11;
+    i = 11;
   else
-    currentImage = i - 1;
+    i = i - 1;
 
- renderDialog(currentImage); 
+ renderDialog(i); 
 }
 
 function forward(i){
   if(i == 11)
-    currentImage = 0;
+    i = 0;
   else
-    currentImage = i + 1;
+    i = i + 1;
 
-  renderDialog(currentImage)
+  renderDialog(i)
 }
+
+
 
