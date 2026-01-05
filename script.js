@@ -43,13 +43,13 @@ function renderDialog(event, i){
   dialog.innerHTML = ` 
             <div class="dialog-head">
               <span>${imgAlt[i]}</span>
-              <img src="img/close-icon/close.svg" alt="close-icon" onclick= closeDialog() />
+              <img src="img/close-icon/close.svg" alt="close-icon" onclick= closeDialog() class=close-img />
             </div>
             <img src=img/${imgArr[i]} alt=${imgAlt[i]} />
             <div class="dialog-footer">
-              <img src="img/close-icon/right-arrow.svg" alt="left-arrow" onclick=backward(${i}) class="rotate-180"/>
+              <img src="img/close-icon/right-arrow.svg" alt="left-arrow" onclick=backward(event,${i}) class="rotate-180"/>
               <span>${i + 1}/12</span>
-              <img src="img/close-icon/right-arrow.svg" alt="right-arrow" onclick=forward(${i}) />
+              <img src="img/close-icon/right-arrow.svg" alt="right-arrow" onclick=forward(event,${i}) />
             </div>`;
 }
 
@@ -57,22 +57,24 @@ function closeDialog(){
   dialog.setAttribute("class", "dialog-hidden");
 }
 
-function backward(i){
+function stopPropagation(event){ event.stopPropagation()};
+
+function backward(e,i){
   if(i == 0)
     i = 11;
   else
     i = i - 1;
 
- renderDialog(i); 
+ renderDialog(e,i); 
 }
 
-function forward(i){
+function forward(e,i){
   if(i == 11)
     i = 0;
   else
     i = i + 1;
 
-  renderDialog(i)
+  renderDialog(e, i)
 }
 
 

@@ -45,16 +45,15 @@ main {
 
   .content {
     width: 100%;
-    height: 80vh;
     max-width: 1440px;
     background-color: #060606;
+    padding: 10% 0;
   }
 
   h1 {
     color: #ffffff;
     text-align: center;
     font-size: 45px;
-    margin-top: 20%;
   }
 
   .photos {
@@ -83,13 +82,13 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 65px;
+    gap: 25px;
     color: #ffffff;
     background-color: #09212a;
     padding: 3%;
     border-radius: 10%;
-    height: 650px;
-    width: 650px;
+    height: 500px;
+    width: 500px;
 
     position: absolute;
     top: 70%;
@@ -99,29 +98,41 @@ main {
 
   .dialog-head,
   .dialog-footer {
-    width: 550px;
+    width: 400px;
   }
 
   .dialog > img {
-    height: 400px;
-    width: 550px;
+    height: 350px;
+    width: 350px;
     object-fit: cover;
   }
 
   .dialog-head {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 0 15px;
     font-size: 14px;
     text-transform: capitalize;
     img {
       cursor: pointer;
+      padding: 15px;
+      border-radius: 50%;
+    }
+
+    img:hover {
+      background-color: #124658;
+    }
+
+    img:active {
+      background-color: #0d3240;
     }
   }
 
   .dialog-footer {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 70px;
 
     .rotate-180 {
@@ -129,7 +140,17 @@ main {
     }
 
     img {
+      padding: 15px;
+      border-radius: 50%;
       cursor: pointer;
+    }
+
+    img:hover {
+      background-color: #1f1e23;
+    }
+
+    img:active {
+      background-color: #372528;
     }
   }
 }
@@ -152,6 +173,7 @@ footer {
 
     background-image: url("./img/footer-background.png");
     background-size: cover;
+    background-position: center;
 
     img {
       height: 50px;
@@ -162,6 +184,69 @@ footer {
       margin: 1% 0 0 0;
       color: white;
       background-color: transparent;
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  header {
+    .content {
+      height: 120px;
+      img {
+        height: 40px;
+      }
+    }
+  }
+
+  main {
+    h1 {
+      font-size: 40px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    h1 {
+      font-size: 25px;
+    }
+
+    .dialog {
+      height: 300px;
+      width: 300px;
+      top: 50%;
+      gap: 5px;
+
+      .dialog-head,
+      .dialog-footer {
+        width: 250px;
+      }
+    }
+
+    .dialog > img {
+      height: 250px;
+      width: 280px;
+    }
+  }
+
+  footer {
+    .content {
+      p {
+        font-size: 14px;
+      }
+
+      img {
+        height: 30px;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  main {
+    .dialog {
+      position: fixed;
+     
     }
   }
 }
