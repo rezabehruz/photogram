@@ -73,85 +73,92 @@ main {
     }
   }
 
-  .dialog-hidden {
-    display: none;
-  }
-
-  .dialog {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 25px;
+  #dialog1 {
+    height: 500px;
+    width: 450px;
     color: #ffffff;
     background-color: #09212a;
-    padding: 3%;
-    border-radius: 10%;
-    height: 500px;
-    width: 500px;
+    border: none;
+    border-radius: 20px;
 
     position: absolute;
-    top: 70%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    button {
+      border: none;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 5px 40px;
+
+      h2 {
+        text-transform: capitalize;
+      }
+
+      img {
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 50%;
+      }
+
+      img:hover {
+        background-color: #124658;
+      }
+
+      img:active {
+        background-color: #0d3240;
+      }
+    }
+
+    figure {
+      width: 400px;
+      height: 300px;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+
+      .left-arrow {
+        transform: rotate(180deg);
+      }
+
+      img {
+        padding: 15px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      img:hover {
+        background-color: #1f1e23;
+      }
+
+      img:active {
+        background-color: #372528;
+      }
+    }
   }
 
-  .dialog-head,
-  .dialog-footer {
-    width: 400px;
-  }
-
-  .dialog > img {
-    height: 350px;
-    width: 350px;
-    object-fit: cover;
-  }
-
-  .dialog-head {
+  .dialog-flex {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 15px;
-    font-size: 14px;
-    text-transform: capitalize;
-    img {
-      cursor: pointer;
-      padding: 15px;
-      border-radius: 50%;
-    }
-
-    img:hover {
-      background-color: #124658;
-    }
-
-    img:active {
-      background-color: #0d3240;
-    }
-  }
-
-  .dialog-footer {
-    display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 70px;
-
-    .rotate-180 {
-      transform: rotateY(180deg);
-    }
-
-    img {
-      padding: 15px;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    img:hover {
-      background-color: #1f1e23;
-    }
-
-    img:active {
-      background-color: #372528;
-    }
+    flex-direction: column;
+    gap: 25px;
   }
 }
 
@@ -202,30 +209,11 @@ footer {
     h1 {
       font-size: 40px;
     }
-  }
-}
-
-@media (max-width: 768px) {
-  main {
-    h1 {
-      font-size: 25px;
-    }
-
-    .dialog {
-      height: 300px;
-      width: 300px;
-      top: 50%;
-      gap: 5px;
-
-      .dialog-head,
-      .dialog-footer {
-        width: 250px;
+    .photos {
+      img {
+        width: 150px;
+        height: 150px;
       }
-    }
-
-    .dialog > img {
-      height: 250px;
-      width: 280px;
     }
   }
 
@@ -242,11 +230,65 @@ footer {
   }
 }
 
+@media (max-width: 768px) {
+  main {
+    h1 {
+      font-size: 25px;
+    }
+
+    .photos {
+      img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    #dialog1 {
+      height: 300px;
+      width: 300px;
+      top: 50%;
+      gap: 5px;
+
+      header {
+        padding: 10px;
+        h2 {
+          font-size: 14px;
+        }
+      }
+
+      header,
+      footer {
+        width: 250px;
+
+        img {
+          padding: 5px;
+          width: 25px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+      }
+
+      figure {
+        height: 250px;
+        width: 250px;
+
+        img {
+          height: 200px;
+
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 500px) {
   main {
-    .dialog {
+    #dialog1 {
       position: fixed;
-     
     }
   }
 }

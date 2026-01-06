@@ -25,56 +25,60 @@ const imgAlt = [
 "winter-1675197_1280"];
 
 const album = document.getElementById("album1");
-const dialog = document.getElementById("dialog1");
+const dialogRef = document.getElementById("dialog1");
+const h2Ref = document.getElementById("dialog1-h2");
+const imgRef = document.getElementById("dialog1-img");
+const amountImgRef = document.getElementById("amount-img");
+let currentImg;
 
 
 function render(){
     
     for (let i = 0; i < imgArr.length; i++) { 
-      album.innerHTML += `<img onclick=renderDialog(event,${i}) src= img/${ imgArr[i] } alt= ${imgAlt[i]} >`;
+      album.innerHTML += `<img src=img/${ imgArr[i] } alt= ${imgAlt[i]} onclick=showDialog(event,${i}) > `;
     }
     
 }
 
-function renderDialog(event, i){
-  event.stopPropagation();
-  dialog.setAttribute("class", "dialog");
+function showDialog(event,i){
+  stopProp(event);
+
+  dialogRef.show();
+  dialogRef.classList.add("dialog-flex");
+
+  h2Ref.innerHTML = imgAlt[i];
+  imgRef.setAttribute("src", "img/"+imgArr[i]);
+  imgRef.setAttribute("alt", imgAlt[i]);
+  amountImgRef.innerHTML =  i+1 + "/" + imgArr.length;
+  currentImg = i;
   
-  dialog.innerHTML = ` 
-            <div class="dialog-head">
-              <span>${imgAlt[i]}</span>
-              <img src="img/close-icon/close.svg" alt="close-icon" onclick= closeDialog() class=close-img />
-            </div>
-            <img src=img/${imgArr[i]} alt=${imgAlt[i]} />
-            <div class="dialog-footer">
-              <img src="img/close-icon/right-arrow.svg" alt="left-arrow" onclick=backward(event,${i}) class="rotate-180"/>
-              <span>${i + 1}/12</span>
-              <img src="img/close-icon/right-arrow.svg" alt="right-arrow" onclick=forward(event,${i}) />
-            </div>`;
 }
 
 function closeDialog(){
-  dialog.setAttribute("class", "dialog-hidden");
+  dialogRef.close();
+  dialogRef.classList.remove("dialog-flex");
 }
 
-function stopPropagation(event){ event.stopPropagation()};
-
-function backward(e,i){
-  if(i == 0)
-    i = 11;
+function backward(event){
+  if(currentImg == 0)
+    currentImg = 11;
   else
-    i = i - 1;
+    currentImg = currentImg - 1;
 
- renderDialog(e,i); 
+ showDialog(event,currentImg); 
 }
 
-function forward(e,i){
-  if(i == 11)
-    i = 0;
-  else
-    i = i + 1;
+function stopProp(event){
+  event.stopPropagation();
+}
 
-  renderDialog(e, i)
+function forward(event){
+  if(currentImg == 11)
+    currentImg = 0;
+  else
+    currentImg = currentImg + 1;
+
+  showDialog(event, currentImg)
 }
 
 

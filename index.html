@@ -28,7 +28,37 @@
         <article id="article1">
           <h1 class="raleway-semi-bold">Your personal Photo Album</h1>
           <section id="album1" class="photos"></section>
-          <section id="dialog1" class="dialog-hidden" onclick="stopPropagation(event)"></section>
+
+          <dialog id="dialog1" onclick="stopProp(event)">
+            <header>
+              <h2 id="dialog1-h2"></h2>
+              <button onclick="closeDialog()">
+                <img src="./img/close-icon/close.svg" alt="closeDialog" />
+              </button>
+            </header>
+
+            <figure>
+              <img
+                src="./img/alaska-810433_1280.jpg"
+                alt="alaska"
+                id="dialog1-img"
+              />
+            </figure>
+
+            <footer>
+              <button onclick="backward(event)">
+                <img
+                  src="./img/close-icon/right-arrow.svg"
+                  alt="backward"
+                  class="left-arrow"
+                />
+              </button>
+              <p id="amount-img"></p>
+              <button onclick="forward(event)">
+                <img src="./img/close-icon/right-arrow.svg" alt="forward" />
+              </button>
+            </footer>
+          </dialog>
         </article>
       </div>
     </main>
