@@ -17,7 +17,7 @@
       type="image/x-icon"
     />
   </head>
-  <body onload="render()" onclick="closeDialog()">
+  <body onload="render()" onclick="closeDialog()" role="link">
     <header>
       <div class="content">
         <img src="./img/photogram-logo/logo.png" alt="photogram-logo" />
@@ -26,27 +26,39 @@
     <main>
       <div class="content">
         <article id="article1">
-          <h1 class="raleway-semi-bold">Your personal Photo Album</h1>
-          <section id="album1" class="photos"></section>
+          <h1 class="raleway-semi-bold" id="album-title">
+            Your personal Photo Album
+          </h1>
+          <section
+            id="album1"
+            class="photos"
+            aria-labelledby="album-title"
+          ></section>
 
-          <dialog id="dialog1" onclick="stopProp(event)">
+          <dialog
+            id="dialog1"
+            class="img-dialog"
+            onclick="stopProp(event)"
+            aria-labelledby="dialog1-h2"
+          >
             <header>
               <h2 id="dialog1-h2"></h2>
-              <button onclick="closeDialog()">
+              <button onclick="closeDialog()" aria-label="close dialog">
                 <img src="./img/close-icon/close.svg" alt="closeDialog" />
               </button>
             </header>
-
-            <figure>
-              <img
-                src="./img/alaska-810433_1280.jpg"
-                alt="alaska"
-                id="dialog1-img"
-              />
-            </figure>
+            <section>
+              <figure>
+                <img
+                  src="./img/alaska-810433_1280.jpg"
+                  alt="alaska"
+                  id="dialog1-img"
+                />
+              </figure>
+            </section>
 
             <footer>
-              <button onclick="backward(event)">
+              <button onclick="backward(event)" aria-label="back">
                 <img
                   src="./img/close-icon/right-arrow.svg"
                   alt="backward"
@@ -54,7 +66,7 @@
                 />
               </button>
               <p id="amount-img"></p>
-              <button onclick="forward(event)">
+              <button onclick="forward(event)" aria-label="next">
                 <img src="./img/close-icon/right-arrow.svg" alt="forward" />
               </button>
             </footer>

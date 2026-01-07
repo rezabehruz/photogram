@@ -29,17 +29,23 @@ const dialogRef = document.getElementById("dialog1");
 const h2Ref = document.getElementById("dialog1-h2");
 const imgRef = document.getElementById("dialog1-img");
 const amountImgRef = document.getElementById("amount-img");
-let currentImg;
+let currentImg = 0;
 
 
+/** renders the album */
 function render(){
-    
     for (let i = 0; i < imgArr.length; i++) { 
-      album.innerHTML += `<img src=img/${ imgArr[i] } alt= ${imgAlt[i]} onclick=showDialog(event,${i}) > `;
+      album.innerHTML += createPhoto(i);
     }
-    
 }
 
+
+/** renders Html */
+function createPhoto(i){
+  return `<a href="#" onclick=showDialog(event,${i}) id=img${i}><img src=img/${ imgArr[i] } alt= ${imgAlt[i]}> </a> `;
+}
+
+/** opens Dialog in Details */
 function showDialog(event,i){
   stopProp(event);
 
@@ -54,11 +60,19 @@ function showDialog(event,i){
   
 }
 
+/** cleses the Dialog */
 function closeDialog(){
   dialogRef.close();
+  document.getElementById(`img${currentImg}`).focus();
   dialogRef.classList.remove("dialog-flex");
 }
 
+/** prevents event Babbling */
+function stopProp(event){
+  event.stopPropagation();
+}
+
+/** handels one Photo back */
 function backward(event){
   if(currentImg == 0)
     currentImg = 11;
@@ -68,17 +82,26 @@ function backward(event){
  showDialog(event,currentImg); 
 }
 
-function stopProp(event){
-  event.stopPropagation();
-}
-
+/** handels next Photo */
 function forward(event){
   if(currentImg == 11)
     currentImg = 0;
   else
     currentImg = currentImg + 1;
 
-  showDialog(event, currentImg)
+  showDialog(event, currentImg);
+}
+
+/**
+ * Keyboard Keys handeln in Dialog
+ */
+dialogRef.onkeydown = function (event) {
+  if(event.key == "Escape") 
+    closeDialog();
+  else if (event.key == "ArrowRight") 
+    backward(event);
+  else if (event.key == "ArrowLeft") 
+    forward(event);
 }
 
 

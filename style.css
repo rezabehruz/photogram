@@ -1,13 +1,13 @@
 * {
+  position: relative;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  position: relative;
-  scroll-behavior: smooth;
+  font-size: inherit;
   text-decoration: none;
   list-style-type: none;
+  scroll-behavior: smooth;
   background-color: inherit;
-  font-size: inherit;
 }
 
 .raleway-semi-bold {
@@ -17,19 +17,19 @@
   font-style: normal;
 }
 
+/* Header */
 header {
   display: flex;
   justify-content: center;
   align-items: center;
 
   .content {
+    display: flex;
+    align-items: center;
     width: 100%;
     height: 150px;
     max-width: 1920px;
     background-color: #09212a;
-
-    display: flex;
-    align-items: center;
 
     img {
       height: 70px;
@@ -38,6 +38,7 @@ header {
   }
 }
 
+/* Main Content of Website */
 main {
   display: flex;
   justify-content: center;
@@ -46,14 +47,14 @@ main {
   .content {
     width: 100%;
     max-width: 1440px;
-    background-color: #060606;
+    background-color: #06171e;
     padding: 10% 0;
   }
 
   h1 {
-    color: #ffffff;
     text-align: center;
     font-size: 45px;
+    color: #ffffff;
   }
 
   .photos {
@@ -64,27 +65,36 @@ main {
     margin-top: 5%;
     gap: 1%;
 
-    img {
-      margin-top: 3%;
-      width: 180px;
+    a {
       height: 180px;
+      width: 180px;
+      margin-top: 2%;
+    }
+
+    a:hover {
+      transform: scale(1.1);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
       border-radius: 10px;
       cursor: pointer;
     }
   }
 
-  #dialog1 {
+  .img-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     height: 500px;
     width: 450px;
     color: #ffffff;
     background-color: #09212a;
     border: none;
     border-radius: 20px;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 
     button {
       border: none;
@@ -162,22 +172,21 @@ main {
   }
 }
 
+/* Footer */
 footer {
   display: flex;
   justify-content: center;
   align-items: center;
 
   .content {
-    width: 100%;
-    height: 150px;
-    max-width: 1920px;
-    background-color: #060606;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    width: 100%;
+    height: 150px;
+    max-width: 1920px;
+    background-color: #06171e;
     background-image: url("./img/footer-background.png");
     background-size: cover;
     background-position: center;
@@ -195,6 +204,7 @@ footer {
   }
 }
 
+/* responsive for width less than 1280px */
 @media (max-width: 1280px) {
   header {
     .content {
@@ -210,9 +220,13 @@ footer {
       font-size: 40px;
     }
     .photos {
-      img {
+      a {
         width: 150px;
         height: 150px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
       }
     }
   }
@@ -230,6 +244,7 @@ footer {
   }
 }
 
+/* responsive for width less than 768px */
 @media (max-width: 768px) {
   main {
     h1 {
@@ -237,13 +252,18 @@ footer {
     }
 
     .photos {
-      img {
-        width: 120px;
+      a {
         height: 120px;
+        width: 120px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
       }
     }
 
-    #dialog1 {
+    .img-dialog {
       height: 300px;
       width: 300px;
       top: 50%;
@@ -285,9 +305,10 @@ footer {
   }
 }
 
+/* Dialog fixed position for width less than 500px */
 @media (max-width: 500px) {
   main {
-    #dialog1 {
+    .img-dialog {
       position: fixed;
     }
   }
