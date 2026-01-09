@@ -17,7 +17,7 @@
       type="image/x-icon"
     />
   </head>
-  <body onload="render()" onclick="closeDialog()" role="link">
+  <body onload="render()">
     <header>
       <div class="content">
         <img src="./img/photogram-logo/logo.png" alt="photogram-logo" />
@@ -36,9 +36,9 @@
           ></section>
 
           <dialog
+          closedby="any"
             id="dialog1"
             class="img-dialog"
-            onclick="stopProp(event)"
             aria-labelledby="dialog1-h2"
           >
             <header>

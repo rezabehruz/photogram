@@ -22,6 +22,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #09212a;
 
   .content {
     display: flex;
@@ -33,7 +34,7 @@ header {
 
     img {
       height: 70px;
-      margin-left: 5%;
+      margin-left: 10%;
     }
   }
 }
@@ -43,12 +44,14 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #06171e;
 
   .content {
     width: 100%;
-    max-width: 1440px;
-    background-color: #06171e;
-    padding: 10% 0;
+    min-height: 100vh;
+    max-width: 1920px;
+
+    padding: 10% 5%;
   }
 
   h1 {
@@ -73,11 +76,13 @@ main {
 
     a:hover {
       transform: scale(1.1);
+      transition: ease 2s;
     }
 
     img {
       width: 100%;
       height: 100%;
+      object-fit: cover;
       border-radius: 10px;
       cursor: pointer;
     }
@@ -141,6 +146,7 @@ main {
       display: flex;
       align-items: center;
       justify-content: center;
+      background-color: transparent;
       gap: 30px;
 
       .left-arrow {
@@ -177,6 +183,10 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #06171e;
+  background-image: url("./img/footer-background.png");
+  background-size: cover;
+  background-position-x: center;
 
   .content {
     display: flex;
@@ -186,10 +196,7 @@ footer {
     width: 100%;
     height: 150px;
     max-width: 1920px;
-    background-color: #06171e;
-    background-image: url("./img/footer-background.png");
-    background-size: cover;
-    background-position: center;
+    background-color: transparent;
 
     img {
       height: 50px;
@@ -234,7 +241,7 @@ footer {
   footer {
     .content {
       p {
-        font-size: 14px;
+        font-size: 16px;
       }
 
       img {
@@ -270,33 +277,32 @@ footer {
       gap: 5px;
 
       header {
-        padding: 10px;
+        padding: 5px 10px;
         h2 {
-          font-size: 14px;
+          font-size: 16px;
         }
       }
 
       header,
       footer {
-        width: 250px;
+        width: 280px;
 
         img {
           padding: 5px;
-          width: 25px;
+          width: 20px;
         }
 
         p {
-          font-size: 14px;
+          font-size: 16px;
         }
       }
 
       figure {
-        height: 250px;
-        width: 250px;
+        height: 210px;
+        width: 265px;
 
         img {
           height: 200px;
-
           width: 100%;
           object-fit: cover;
         }

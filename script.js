@@ -31,12 +31,15 @@ const imgRef = document.getElementById("dialog1-img");
 const amountImgRef = document.getElementById("amount-img");
 let currentImg = 0;
 
-
 /** renders the album */
 function render(){
     for (let i = 0; i < imgArr.length; i++) { 
       album.innerHTML += createPhoto(i);
     }
+}
+
+document.onclick = function (){
+  closeDialog();
 }
 
 
@@ -47,11 +50,11 @@ function createPhoto(i){
 
 /** opens Dialog in Details */
 function showDialog(event,i){
-  stopProp(event);
+  event.stopPropagation();
 
-  dialogRef.show();
+  dialogRef.showModal();
   dialogRef.classList.add("dialog-flex");
-
+  document.body.style.overflow = "hidden"
   h2Ref.innerHTML = imgAlt[i];
   imgRef.setAttribute("src", "img/"+imgArr[i]);
   imgRef.setAttribute("alt", imgAlt[i]);
@@ -63,13 +66,9 @@ function showDialog(event,i){
 /** cleses the Dialog */
 function closeDialog(){
   dialogRef.close();
+  document.body.style.overflow = "";
   document.getElementById(`img${currentImg}`).focus();
   dialogRef.classList.remove("dialog-flex");
-}
-
-/** prevents event Babbling */
-function stopProp(event){
-  event.stopPropagation();
 }
 
 /** handels one Photo back */
