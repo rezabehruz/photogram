@@ -63,7 +63,7 @@ function showDialog(event,i){
   
 }
 
-/** cleses the Dialog */
+/** clses the Dialog */
 function closeDialog(){
   dialogRef.close();
   document.body.style.overflow = "";
